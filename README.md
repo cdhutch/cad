@@ -1,64 +1,119 @@
 # CAD Library
 
-A general repository for CAD models and 3D-printing assets.
+A general repository for CAD models and 3D‑printing assets.
 
-This repo contains original designs, modified models, and organized
-assets used for prototyping, shop organization, and hardware projects.
+This repository stores parametric design references, exported geometry,
+and slicer projects used for prototyping, shop organization, and
+hardware builds.
 
 ## Repository Structure
 
-    3mf/    Printable project files and slicer-ready builds
-    stl/    Exported geometry for printing or reuse
-    docs/   Documentation and conventions
+    cad/
+    ├── README.md
+    ├── docs/
+    │   └── repo-conventions.md
+    └── gridfinity/
+        ├── README.md
+        ├── docs/
+        │   ├── naming.md
+        │   └── notes.md
+        ├── source/
+        │   ├── onshape/
+        │   │   └── links.md
+        │   └── step/
+        ├── stl/
+        │   └── base/
+        │       └── baseplates/
+        │           └── magnet/
+        └── 3mf/
+            ├── baseplates/
+            │   └── magnet/
+            ├── grids/
+            └── nystrom_performance/
 
-### `3mf/`
-
-Project files in **3MF format**, typically exported from slicers. These
-may contain:
-
--   multiple objects
--   build plates
--   print settings
--   supports
--   arranged layouts
-
-Subdirectories organize projects or systems (for example `grids/` or
-`nystrom_performance/`).
-
-### `stl/`
-
-Raw geometry intended for printing or remixing.
-
-Current organization follows a functional hierarchy such as:
-
-    stl/
-      base/
-        baseplates/
-          magnet/
+## Directory Purpose
 
 ### `docs/`
 
-Repository documentation.
+General documentation for the CAD repository.
 
-Currently includes:
+Includes:
 
-    docs/naming.md
+-   repository conventions
+-   naming rules
+-   organizational guidance
 
-which describes file naming conventions for exported models.
+### `gridfinity/`
 
-## Conventions
+Gridfinity‑compatible storage designs and experiments.
 
--   Prefer **`.3mf` for printable projects**
--   Use **`.stl` for distributable geometry**
--   Keep slicer-specific files in `3mf/`
--   Follow naming rules in `docs/naming.md`
+#### `source/`
+
+Editable or reference CAD information.
+
+Typical contents:
+
+-   links to Onshape documents
+-   STEP exports for interoperability
+
+#### `stl/`
+
+Printable mesh geometry exported from CAD.
+
+These files are suitable for remixing or slicing.
+
+#### `3mf/`
+
+Slicer project files (for example Bambu Studio builds).
+
+These often include:
+
+-   plate layouts
+-   supports
+-   print profiles
+-   multiple parts per build
+
+Subdirectories organize prints by project or system.
+
+Example:
+
+-   `baseplates/` -- Gridfinity base frame builds
+-   `grids/` -- layout grids
+-   `nystrom_performance/` -- custom tool organization trays
+
+#### `docs/`
+
+Project‑specific notes and naming conventions.
+
+## File Type Conventions
+
+Preferred formats:
+
+-   `.3mf` -- slicer project files
+-   `.stl` -- printable mesh geometry
+-   `.step` / `.stp` -- CAD exchange geometry
+
+Large binary files are tracked using **Git LFS**.
+
+## Naming Conventions
+
+General rules:
+
+-   lowercase filenames
+-   hyphenated descriptors
+-   version suffixes such as `_v1`, `_v2`, etc.
+
+Detailed rules are defined in:
+
+    gridfinity/docs/naming.md
 
 ## Included Systems
 
-Currently includes models related to:
+Currently includes:
 
--   Gridfinity-compatible storage
--   Shop drawer organizers
--   Custom tray layouts
+-   Gridfinity storage components
+-   drawer organization trays
+-   custom tool‑specific inserts
 
-Additional CAD projects may be added over time.
+Additional CAD projects may be added as new top‑level folders alongside
+`gridfinity/`.
