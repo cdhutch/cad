@@ -16,13 +16,25 @@ Designs are parametric where possible. The repo is **project-first**: each major
 
 ---
 
+## Active Branch
+
+`tooltrace-tools` — all tooltrace.ai-driven tray work lives here. Not yet merged to main.
+
+---
+
+## Git Workflow Constraint
+
+**Always provide git commands for the user to run; never execute them directly in the shell.** Running git in the sandbox causes stale lock files (`.git/index.lock`, `.git/HEAD.lock`) that block the user's terminal.
+
+---
+
 ## Repo Structure
 
 ```
 cad/
 ├── CLAUDE.md                        ← this file
 ├── README.md                        ← human-facing overview
-├── .gitattributes                   ← Git LFS tracking (*.stl, *.3mf, *.step, *.stp)
+├── .gitattributes                   ← Git LFS tracking (*.stl, *.3mf, *.step, *.stp, *.dxf)
 ├── docs/
 │   └── repo-conventions.md          ← naming rules and folder conventions
 └── gridfinity/                      ← only project currently
@@ -30,19 +42,30 @@ cad/
     ├── docs/
     │   ├── naming.md                ← filename convention spec
     │   ├── notes.md                 ← design notes (stub — populate as decisions are made)
+    │   ├── allen-wrench-tray.md     ← design notes for Allen wrench tray project
     │   └── drill_tray_generator.md  ← step-by-step Onshape guide for parametric drill trays
     ├── source/
     │   ├── onshape/
     │   │   └── links.md             ← Onshape document URLs (stub — add links as docs are created)
-    │   └── step/                    ← STEP exports for interoperability (currently empty)
+    │   ├── step/                    ← STEP files for Onshape import, organised by tool
+    │   │   ├── allen-wrenches/      ← body_1.step, body_2.step, body_3.step
+    │   │   └── wera-electrical-screwdrivers/  ← STEP from tooltrace
+    │   └── tooltrace/               ← raw tooltrace.ai exports (STL + DXF), organised by tool
+    │       ├── allen-wrenches/      ← body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf
+    │       └── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
     ├── stl/
-    │   └── base/
-    │       └── baseplates/
-    │           └── magnet/          ← STL baseplate exports (currently empty)
+    │   ├── base/
+    │   │   └── baseplates/
+    │   │       └── magnet/          ← STL baseplate exports (currently empty)
+    │   └── inserts/                 ← finished tray STLs from Onshape
+    │       ├── allen-wrenches/      ← wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl
+    │       └── wera-electrical-screwdrivers/  ← (empty — STL not yet exported)
     └── 3mf/
         ├── baseplates/
         │   └── magnet/              ← 2 baseplate slicer builds (see below)
         ├── grids/                   ← layout grids (currently empty)
+        ├── allen-wrenches/          ← (empty — 3MF not yet built)
+        ├── wera-electrical-screwdrivers/  ← wera-kraftform-160i-tray_4x6x3.9u_v1.3mf
         └── nystrom_performance/     ← 10 tool tray builds for Nystrom Performance cabinet
 ```
 
@@ -68,14 +91,37 @@ Slicer builds for tool organization trays fitting a Nystrom Performance tool cab
 
 > **TODO:** Document what each numbered tray holds in `gridfinity/docs/notes.md`.
 
+### tooltrace.ai Tray Projects (in progress — `tooltrace-tools` branch)
+
+#### Colorful Wiha Hex Key Sets — SAE + Metric (`gridfinity/stl/inserts/allen-wrenches/`)
+
+| File | Description |
+|------|-------------|
+| `wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl` | STL exported from tooltrace.ai; 4×6 grid, 2.1u height |
+
+- Onshape CAD not yet started; see `gridfinity/docs/allen-wrench-tray.md` for full workflow and checklist
+- 3MF slicer build not yet created
+- tooltrace source: `source/tooltrace/allen-wrenches/` (body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf) and `source/step/allen-wrenches/` (body_1–3.step)
+
+#### Wera Kraftform Plus 160i/6 Insulated Screwdriver Set (`gridfinity/3mf/wera-electrical-screwdrivers/`)
+
+| File | Description |
+|------|-------------|
+| `wera-kraftform-160i-tray_4x6x3.9u_v1.3mf` | Bambu Studio project; 4×6 grid, 3.9u height |
+
+- STL not yet exported from Onshape → `stl/inserts/wera-electrical-screwdrivers/` is empty
+- tooltrace source: `source/tooltrace/wera-electrical-screwdrivers/` (body_1–7.stl, dxf) and `source/step/wera-electrical-screwdrivers/`
+- 6-piece set; 7 tooltrace bodies (body_7 is likely the rack/holder)
+
 ---
 
-## Empty Placeholders (Planned, Not Yet Populated)
+## Empty / Stub Locations
 
-- `gridfinity/source/step/` — STEP exports for CAD interoperability
-- `gridfinity/stl/base/baseplates/magnet/` — STL exports of baseplates
-- `gridfinity/3mf/grids/` — layout grid builds
-- `gridfinity/source/onshape/links.md` — Onshape document URLs (stub only)
+- `gridfinity/stl/base/baseplates/magnet/` — STL exports of baseplates (not yet exported)
+- `gridfinity/stl/inserts/wera-electrical-screwdrivers/` — STL pending Onshape export
+- `gridfinity/3mf/allen-wrenches/` — 3MF pending Bambu Studio build
+- `gridfinity/3mf/grids/` — layout grid builds (not started)
+- `gridfinity/source/onshape/links.md` — Onshape document URLs (stub only; no docs created yet)
 - `gridfinity/docs/notes.md` — design decisions and fit observations (stub only)
 
 ---
@@ -137,11 +183,17 @@ Source CAD lives in Onshape (cloud). This repo stores:
 
 ## Design Workflow (tooltrace.ai → Onshape → Print)
 
-1. **tooltrace.ai**: Photograph the tool against a reference surface to extract a 2D profile (DXF or SVG)
-2. **Onshape**: Import the profile, build a holder body around it, apply Gridfinity bin geometry (lip, stacking interface, optional magnet pockets)
-3. **Export STL** from Onshape → save to `gridfinity/stl/`
-4. **Slice in Bambu Studio** → save `.3mf` project to `gridfinity/3mf/<project-name>/`
+1. **tooltrace.ai**: Photograph the tool to extract its profile. Download **STEP + DXF** (skip SVG). STL is optional but also worth keeping.
+   - STEP → `gridfinity/source/step/<tool>/` (used as Onshape boolean subtract body)
+   - STL + DXF → `gridfinity/source/tooltrace/<tool>/` (reference; DXF can be imported as Onshape sketch)
+2. **Onshape**: Import STEP as solid body. Boolean subtract (with `#clearance` offset) from tray body to create pocket. Apply Gridfinity bin geometry (lip, stacking interface, optional magnet pockets).
+3. **Export STL** from Onshape → `gridfinity/stl/inserts/<tool>/<name>_<WxD>x<H>u_<variant>_v<N>.stl`
+4. **Slice in Bambu Studio** → `File → Save Project` (NOT Export Plate Sliced File — that embeds gcode and produces a ~270 MB file). Save as `.3mf` to `gridfinity/3mf/<tool>/`
 5. **Update `links.md`** with the Onshape document URL and version/config notes
+
+### tooltrace.ai STEP File Characteristics
+
+tooltrace STEP exports are **flat solid slabs** (~1.9–6 mm Z) representing the tool silhouette lying on a plane — not sketches. In Onshape, use boolean subtract rather than sketch projection. Apply a `#clearance` variable (start at 0.3 mm; see `gridfinity/docs/allen-wrench-tray.md` for clearance table).
 
 ---
 
