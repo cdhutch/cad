@@ -24,7 +24,7 @@ Designs are parametric where possible. The repo is **project-first**: each major
 
 ## Git Workflow Constraint
 
-**Always provide git commands for the user to run; never execute them directly in the shell.** Running git in the sandbox causes stale lock files (`.git/index.lock`, `.git/HEAD.lock`) that block the user's terminal.
+**Always provide git commands for the user to run; never execute them directly in the shell.** Running git in the sandbox causes stale lock files (`.git/index.lock`, `.git/HEAD.lock`) that block the user's terminal. This also applies to push/pull — Claude never pushes to or pulls from GitHub; the user runs every git command themselves.
 
 ---
 
@@ -40,23 +40,23 @@ cad/
 └── gridfinity/                      ← only project currently
     ├── README.md
     ├── docs/
-    │   ├── naming.md                ← filename convention spec
-    │   ├── notes.md                 ← design notes (stub — populate as decisions are made)
-    │   ├── allen-wrench-tray.md     ← design notes for Allen wrench tray project
-    │   └── drill_tray_generator.md  ← step-by-step Onshape guide for parametric drill trays
+    │   ├── naming.md                       ← filename convention spec
+    │   ├── notes.md                        ← design notes + per-tray status tables
+    │   ├── allen-wrench-tray.md            ← design notes for Allen wrench tray project
+    │   ├── wera-electrical-screwdrivers-tray.md  ← design notes for Wera screwdriver tray
+    │   └── drill_tray_generator.md         ← step-by-step Onshape guide for parametric drill trays
     ├── source/
     │   ├── onshape/
     │   │   └── links.md             ← Onshape document URLs (stub — add links as docs are created)
     │   ├── step/                    ← STEP files for Onshape import, organised by tool
     │   │   ├── allen-wrenches/      ← body_1.step, body_2.step, body_3.step
-    │   │   └── wera-electrical-screwdrivers/  ← STEP from tooltrace
+    │   │   └── wera-electrical-screwdrivers/  ← shadowbow.step
     │   └── tooltrace/               ← raw tooltrace.ai exports (STL + DXF), organised by tool
     │       ├── allen-wrenches/      ← body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf
     │       └── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
     ├── stl/
-    │   ├── base/
-    │   │   └── baseplates/
-    │   │       └── magnet/          ← STL baseplate exports (currently empty)
+    │   ├── baseplates/
+    │   │   └── magnet/              ← STL baseplate exports (currently empty)
     │   └── inserts/                 ← finished tray STLs from Onshape
     │       ├── allen-wrenches/      ← wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl
     │       └── wera-electrical-screwdrivers/  ← (empty — STL not yet exported)
@@ -64,10 +64,17 @@ cad/
         ├── baseplates/
         │   └── magnet/              ← 2 baseplate slicer builds (see below)
         ├── grids/                   ← layout grids (currently empty)
-        ├── allen-wrenches/          ← (empty — 3MF not yet built)
         ├── wera-electrical-screwdrivers/  ← wera-kraftform-160i-tray_4x6x3.9u_v1.3mf
         └── nystrom_performance/     ← 10 tool tray builds for Nystrom Performance cabinet
 ```
+
+> Note: `stl/` and `3mf/` deliberately use the same top-level split
+> (`baseplates/`, `grids/`, then per-tool folders for `inserts/`-style trays)
+> rather than each inventing its own layout — keep new folders consistent
+> with that pattern. `gridfinity/3mf/allen-wrenches/` already exists (reserved
+> via `.gitkeep`) even though no 3MF has been built yet — that's this repo's
+> existing convention for stub folders, and it's a good one; keep using
+> `.gitkeep` to reserve a destination folder ahead of the file landing in it.
 
 ---
 
@@ -89,7 +96,7 @@ Slicer builds for tool organization trays fitting a Nystrom Performance tool cab
 | `tray-1_v1.3mf` through `tray-9_v1.3mf` | 9 tool trays, ~136–503 KB each |
 | `left-hand-drill-tray_v1.3mf` | Left-hand drill bit tray |
 
-> **TODO:** Document what each numbered tray holds in `gridfinity/docs/notes.md`.
+> **TODO:** Document what each numbered tray holds — table stubbed out in `gridfinity/docs/notes.md`.
 
 ### tooltrace.ai Tray Projects (in progress — `tooltrace-tools` branch)
 
@@ -97,10 +104,9 @@ Slicer builds for tool organization trays fitting a Nystrom Performance tool cab
 
 | File | Description |
 |------|-------------|
-| `wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl` | STL exported from tooltrace.ai; 4×6 grid, 2.1u height |
+| `wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl` | STL exported from Onshape; 4×6 grid, 2.1u height |
 
-- Onshape CAD not yet started; see `gridfinity/docs/allen-wrench-tray.md` for full workflow and checklist
-- 3MF slicer build not yet created
+- STL already exported; 3MF slicer build not yet created — see `gridfinity/docs/allen-wrench-tray.md` for full workflow, status checklist, and clearance table
 - tooltrace source: `source/tooltrace/allen-wrenches/` (body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf) and `source/step/allen-wrenches/` (body_1–3.step)
 
 #### Wera Kraftform Plus 160i/6 Insulated Screwdriver Set (`gridfinity/3mf/wera-electrical-screwdrivers/`)
@@ -110,19 +116,19 @@ Slicer builds for tool organization trays fitting a Nystrom Performance tool cab
 | `wera-kraftform-160i-tray_4x6x3.9u_v1.3mf` | Bambu Studio project; 4×6 grid, 3.9u height |
 
 - STL not yet exported from Onshape → `stl/inserts/wera-electrical-screwdrivers/` is empty
-- tooltrace source: `source/tooltrace/wera-electrical-screwdrivers/` (body_1–7.stl, dxf) and `source/step/wera-electrical-screwdrivers/`
-- 6-piece set; 7 tooltrace bodies (body_7 is likely the rack/holder)
+- tooltrace source: `source/tooltrace/wera-electrical-screwdrivers/` (body_1–7.stl, dxf) and `source/step/wera-electrical-screwdrivers/` (shadowbow.step)
+- 6-piece set; 7 tooltrace bodies (body_7 is likely the rack/holder) — see `gridfinity/docs/wera-electrical-screwdrivers-tray.md`
 
 ---
 
 ## Empty / Stub Locations
 
-- `gridfinity/stl/base/baseplates/magnet/` — STL exports of baseplates (not yet exported)
+- `gridfinity/stl/baseplates/magnet/` — STL exports of baseplates (not yet exported)
 - `gridfinity/stl/inserts/wera-electrical-screwdrivers/` — STL pending Onshape export
-- `gridfinity/3mf/allen-wrenches/` — 3MF pending Bambu Studio build
 - `gridfinity/3mf/grids/` — layout grid builds (not started)
+- `gridfinity/3mf/allen-wrenches/` — 3MF pending Bambu Studio build (folder reserved via `.gitkeep`)
 - `gridfinity/source/onshape/links.md` — Onshape document URLs (stub only; no docs created yet)
-- `gridfinity/docs/notes.md` — design decisions and fit observations (stub only)
+- `gridfinity/docs/notes.md` — has stub tables for Nystrom trays and baseplates; fill in as confirmed
 
 ---
 
@@ -159,6 +165,15 @@ All binary geometry is tracked via **Git LFS** (`.gitattributes`):
 | `.3mf` | Slicer project files (Bambu Studio); include plate layout, supports, print profiles |
 | `.stl` | Printable mesh exports; suitable for remixing or direct slicing |
 | `.step` / `.stp` | CAD exchange geometry (Onshape exports for interoperability) |
+| `.dxf` | 2D trace/sketch geometry (tooltrace exports) |
+
+> `*.dxf` was documented here as LFS-tracked but was missing from `.gitattributes`
+> until this reorganization — it's fixed now, but the two DXF files already
+> committed on `tooltrace-tools` (1.7 MB and 2.8 MB) were committed as regular
+> git blobs, not LFS objects. New commits of those files will now go through
+> LFS; migrating the *existing* commits into LFS requires `git lfs migrate`,
+> which rewrites history and would need a force-push — worth doing deliberately
+> later, not as a side effect of this cleanup.
 
 ---
 
@@ -215,3 +230,16 @@ When starting a new CAD project (e.g., a non-Gridfinity enclosure or jig):
 2. Mirror the internal structure: `source/`, `stl/`, `3mf/`, `docs/`
 3. Add a `README.md` describing the project
 4. Follow naming conventions from `docs/repo-conventions.md`
+
+---
+
+## Reorganization Log
+
+- **2026-09-06**: Flattened `stl/base/baseplates/magnet/` → `stl/baseplates/magnet/`
+  to match `3mf/baseplates/magnet/`'s layout (was an empty, untracked folder —
+  no git history affected). Added missing `*.dxf` LFS rule to `.gitattributes`.
+  Synced `README.md`'s structure diagram with reality. Updated
+  `allen-wrench-tray.md`'s status checklist to match files actually present,
+  and added a matching `wera-electrical-screwdrivers-tray.md` doc and
+  `notes.md` status tables. No git commands were run — see the session's
+  git command list for what's staged for commit.

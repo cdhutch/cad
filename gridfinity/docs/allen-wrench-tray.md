@@ -7,18 +7,16 @@ tooltrace.ai STEP profiles imported into Onshape.
 
 ## Source Files
 
-Three STEP files exported from tooltrace.ai are in:
-
-    gridfinity/source/step/allen-wrenches/
-
-Each file represents the traced profile of one wrench (or one wrench set
-size). Add them there and update this table:
+Three STEP files exported from tooltrace.ai are in `source/step/allen-wrenches/`,
+with matching STL + DXF reference copies in `source/tooltrace/allen-wrenches/`:
 
 | File | Wrench size | Notes |
 |------|-------------|-------|
-| _(add filename)_ | | |
-| _(add filename)_ | | |
-| _(add filename)_ | | |
+| `body_1.step` | _(add size)_ | |
+| `body_2.step` | _(add size)_ | |
+| `body_3.step` | _(add size)_ | |
+
+`colorful-wiha-hex-keys-mm.dxf` is the combined tooltrace trace of the full set.
 
 ---
 
@@ -49,6 +47,9 @@ Allen wrenches taper significantly along their length. Decide early:
 Recommended starting tray size: **2×1** grid units (84 × 42 mm) for a single-row set;
 **3×2** for a complete SAE or metric set.
 
+The tray actually built (`wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl`) covers both
+SAE and metric in one 4×6, 2.1u-tall tray.
+
 ---
 
 ## Clearance and Fit
@@ -65,7 +66,7 @@ Test print a single pocket before committing to a full tray.
 
 ## Naming Convention
 
-Follow `gridfinity/docs/naming.md`:
+Follow `naming.md`:
 
     allen-wrench-holder_<WxD>x<H>u_<variant>_v<N>.stl
 
@@ -77,8 +78,13 @@ Examples:
 
 ## Status
 
-- [ ] STEP files added to `source/step/allen-wrenches/`
-- [ ] Onshape Part Studio created
-- [ ] First test pocket printed and fit verified
-- [ ] Full tray exported and sliced
+- [x] STEP files added to `source/step/allen-wrenches/`
+- [x] Onshape Part Studio created (tray body + pockets)
+- [ ] First test pocket printed and fit verified — confirm and check off
+- [x] Full tray STL exported → `stl/inserts/allen-wrenches/wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl`
+- [ ] 3MF sliced and saved to `3mf/allen-wrenches/` (not yet built)
 - [ ] Onshape link added to `links.md`
+
+_Checked items above are inferred from files present in the repo as of this
+reorganization — confirm against your actual Onshape history and correct if
+the workflow didn't happen in that order._
