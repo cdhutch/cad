@@ -44,7 +44,9 @@ cad/
     │   ├── notes.md                        ← design notes + per-tray status tables
     │   ├── allen-wrench-tray.md            ← design notes for Allen wrench tray project
     │   ├── wera-electrical-screwdrivers-tray.md  ← design notes for Wera screwdriver tray
-    │   └── drill_tray_generator.md         ← step-by-step Onshape guide for parametric drill trays
+    │   ├── drill_tray_generator.md         ← step-by-step Onshape guide for parametric drill trays
+    │   ├── bambu-tool-tray-profile.md      ← Bambu Studio print-profile writeup for low-strength/fast/low-filament trays
+    │   └── tool-tray-minimal-filament.json ← the corresponding process settings (being revised — see below)
     ├── source/
     │   ├── onshape/
     │   │   └── links.md             ← Onshape document URLs (stub — add links as docs are created)
