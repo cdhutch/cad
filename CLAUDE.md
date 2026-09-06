@@ -36,7 +36,8 @@ cad/
 ├── README.md                        ← human-facing overview
 ├── .gitattributes                   ← Git LFS tracking (*.stl, *.3mf, *.step, *.stp, *.dxf)
 ├── docs/
-│   └── repo-conventions.md          ← naming rules and folder conventions
+│   ├── repo-conventions.md          ← naming rules and folder conventions
+│   └── tooltrace-to-gridfinity-workflow.md  ← reproducible ToolTrace → Onshape → Bambu Studio pipeline
 └── gridfinity/                      ← only project currently
     ├── README.md
     ├── docs/
@@ -44,6 +45,7 @@ cad/
     │   ├── notes.md                        ← design notes + per-tray status tables
     │   ├── allen-wrench-tray.md            ← design notes for Allen wrench tray project
     │   ├── wera-electrical-screwdrivers-tray.md  ← design notes for Wera screwdriver tray
+    │   ├── wera-454-7-hf-set-1-tray.md     ← design notes for Wera 454/7 HF Set 1 T-handle tray (in progress)
     │   ├── drill_tray_generator.md         ← step-by-step Onshape guide for parametric drill trays
     │   ├── bambu-tool-tray-profile.md      ← Bambu Studio print-profile writeup for low-strength/fast/low-filament trays
     │   └── gridfinity-tray-light.json      ← the corresponding Bambu Studio process preset (verified 2026-09-06)
@@ -52,7 +54,8 @@ cad/
     │   │   └── links.md             ← Onshape document URLs (stub — add links as docs are created)
     │   ├── step/                    ← STEP files for Onshape import, organised by tool
     │   │   ├── allen-wrenches/      ← body_1.step, body_2.step, body_3.step
-    │   │   └── wera-electrical-screwdrivers/  ← shadowbow.step
+    │   │   ├── wera-electrical-screwdrivers/  ← shadowbow.step
+    │   │   └── wera-454-7-hf-set-1/ ← combined tooltrace STEP exports (v1, v2-separated)
     │   └── tooltrace/               ← raw tooltrace.ai exports (STL + DXF), organised by tool
     │       ├── allen-wrenches/      ← body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf
     │       └── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
@@ -123,6 +126,16 @@ Slicer builds for tool organization trays fitting a Nystrom Performance tool cab
   `gridfinity/docs/wera-electrical-screwdrivers-tray.md`
 - tooltrace source: `source/tooltrace/wera-electrical-screwdrivers/` (body_1–7.stl, dxf) and `source/step/wera-electrical-screwdrivers/` (shadowbow.step)
 - 6-piece set; 7 tooltrace bodies (body_7 is likely the rack/holder)
+
+#### Wera 454/7 HF Set 1 T-Handle Hex-Plus Screwdrivers (`gridfinity/docs/wera-454-7-hf-set-1-tray.md`) — 🚧 in progress
+
+7-piece set (2.5/3/4/5/6/8/10mm), needs a compact interlocking nest across 2+
+plates (6×6 grid unit cap on the P2S). All 7 tools traced in ToolTrace and
+combined; Onshape document created; nest/plate-split and modeling not yet done.
+See the project doc for full status and the general
+`docs/tooltrace-to-gridfinity-workflow.md` for the reusable procedure.
+
+- tooltrace source: `source/step/wera-454-7-hf-set-1/` (combined STEP, v1 + v2-separated)
 
 ---
 
