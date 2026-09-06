@@ -80,11 +80,10 @@ Examples:
 
 - [x] STEP files added to `source/step/allen-wrenches/`
 - [x] Onshape Part Studio created (tray body + pockets)
-- [ ] First test pocket printed and fit verified — confirm and check off
+- [x] Test pocket fit verified
 - [x] Full tray STL exported → `stl/inserts/allen-wrenches/wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl`
-- [ ] 3MF sliced and saved to `3mf/allen-wrenches/` (not yet built)
+- [x] **Printed and installed (2026-09-06)**
+- [ ] 3MF archived to `3mf/allen-wrenches/` — folder still only has `.gitkeep`; the tray was
+      sliced to print it, so grab that `.3mf` from Bambu Studio's recent projects and drop it
+      in here to keep the repo as the source of record
 - [ ] Onshape link added to `links.md`
-
-_Checked items above are inferred from files present in the repo as of this
-reorganization — confirm against your actual Onshape history and correct if
-the workflow didn't happen in that order._

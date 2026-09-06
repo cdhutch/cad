@@ -98,26 +98,29 @@ Slicer builds for tool organization trays fitting a Nystrom Performance tool cab
 
 > **TODO:** Document what each numbered tray holds — table stubbed out in `gridfinity/docs/notes.md`.
 
-### tooltrace.ai Tray Projects (in progress — `tooltrace-tools` branch)
+### tooltrace.ai Tray Projects (`tooltrace-tools` branch)
 
-#### Colorful Wiha Hex Key Sets — SAE + Metric (`gridfinity/stl/inserts/allen-wrenches/`)
+#### Colorful Wiha Hex Key Sets — SAE + Metric (`gridfinity/stl/inserts/allen-wrenches/`) — ✅ printed & installed 2026-09-06
 
 | File | Description |
 |------|-------------|
 | `wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl` | STL exported from Onshape; 4×6 grid, 2.1u height |
 
-- STL already exported; 3MF slicer build not yet created — see `gridfinity/docs/allen-wrench-tray.md` for full workflow, status checklist, and clearance table
+- Printed and installed. Repo gap: the `.3mf` used to slice it was never archived to
+  `3mf/allen-wrenches/` (still just `.gitkeep`) — see `gridfinity/docs/allen-wrench-tray.md`
 - tooltrace source: `source/tooltrace/allen-wrenches/` (body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf) and `source/step/allen-wrenches/` (body_1–3.step)
 
-#### Wera Kraftform Plus 160i/6 Insulated Screwdriver Set (`gridfinity/3mf/wera-electrical-screwdrivers/`)
+#### Wera Kraftform Plus 160i/6 Insulated Screwdriver Set (`gridfinity/3mf/wera-electrical-screwdrivers/`) — ✅ printed & installed 2026-09-06
 
 | File | Description |
 |------|-------------|
 | `wera-kraftform-160i-tray_4x6x3.9u_v1.3mf` | Bambu Studio project; 4×6 grid, 3.9u height |
 
-- STL not yet exported from Onshape → `stl/inserts/wera-electrical-screwdrivers/` is empty
+- Printed and installed. Repo gap: the `.stl` exported from Onshape to slice it was never
+  archived to `stl/inserts/wera-electrical-screwdrivers/` (still empty) — see
+  `gridfinity/docs/wera-electrical-screwdrivers-tray.md`
 - tooltrace source: `source/tooltrace/wera-electrical-screwdrivers/` (body_1–7.stl, dxf) and `source/step/wera-electrical-screwdrivers/` (shadowbow.step)
-- 6-piece set; 7 tooltrace bodies (body_7 is likely the rack/holder) — see `gridfinity/docs/wera-electrical-screwdrivers-tray.md`
+- 6-piece set; 7 tooltrace bodies (body_7 is likely the rack/holder)
 
 ---
 

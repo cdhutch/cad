@@ -39,10 +39,10 @@ Same pattern as `allen-wrench-tray.md`:
 
 - [x] STEP/tooltrace source files added
 - [x] Onshape Part Studio created (tray body + pockets)
-- [ ] First test pocket printed and fit verified — confirm and check off
-- [ ] Full tray STL exported to `stl/inserts/wera-electrical-screwdrivers/` (currently empty)
+- [x] Test pocket fit verified
 - [x] 3MF sliced and saved → `3mf/wera-electrical-screwdrivers/wera-kraftform-160i-tray_4x6x3.9u_v1.3mf`
+- [x] **Printed and installed (2026-09-06)**
+- [ ] STL archived to `stl/inserts/wera-electrical-screwdrivers/` — still empty; the tray was
+      exported to slice it, so grab that `.stl` from Onshape and drop it in here to keep the
+      repo as the source of record
 - [ ] Onshape link added to `links.md`
-
-_As with the Allen wrench doc, confirm these against your actual Onshape
-history — inferred from which files exist in the repo._
