@@ -1,90 +1,65 @@
-# Bambu Studio Print Profile: Tool Tray — Minimal Filament
+# Bambu Studio Print Profile: Gridfinity Tray - Light
 
-Optimized for **static tool trays** on Bambu Lab P1S/P2S printers. Minimizes filament usage while maintaining structural integrity.
+A custom Bambu Studio process preset for **static tool trays** — printed on a
+Bambu Lab P2S — that minimizes filament and print time. These trays only hold
+tools by gravity (no clamping, no structural load beyond a tool resting in a
+pocket), so wall count, infill, and supports can all be cut well below a
+normal-quality default.
 
-## Profile Settings Summary
+Verified 2026-09-06: created in Bambu Studio's Process panel, checked field-by-field
+in the UI, exported, and confirmed to match. This replaces an earlier draft of this
+doc/profile that had two real problems — its markdown table claimed a 1.2mm wall
+while the JSON set a single 0.42mm-line-width wall loop (an unreconciled
+inconsistency), and it enabled tree supports by default even though these tray
+shapes are normally self-supporting. Both are fixed below.
+
+## Settings
+
+Preset name: **"Gridfinity Tray - Light"**, inherits from **"0.24mm Standard @BBL P2S"**
+(all quality/speed/temperature settings come from that base preset, unchanged —
+only the fields below are overridden):
 
 | Setting | Value | Rationale |
-|---------|-------|-----------|
-| **Infill density** | 10% | Static load only; 10% provides rigidity with minimal material |
-| **Infill pattern** | Grid or Cubic | Balanced strength-to-weight; easy to print |
-| **Wall thickness** | 1.2 mm | Single perimeter sufficient for tool tray walls |
-| **Top layers** | 3 | Minimal; surface doesn't need heavy reinforcement |
-| **Bottom layers** | 3 | Minimal; no load-bearing requirement |
-| **Perimeters** | 1 | Single wall is adequate for static storage |
-| **Support type** | Tree supports | Faster, uses less filament than linear supports |
-| **Support density** | 15% | Minimal; reduces material and print time |
-| **Nozzle temperature** | Material default | PLA: 210°C, PETG: 230°C, ABS: 240°C |
-| **Bed temperature** | Material default | PLA: 60°C, PETG: 80°C, ABS: 100°C |
-| **Print speed** | 150–200 mm/s | Faster print times; static parts don't need slow speeds |
-| **Layer height** | 0.2 mm | Standard; balances quality and speed |
+|---|---|---|
+| Wall loops | 2 | Matches the "0.24mm Standard" base already — 1 wall risks pinholes/fragile corners at low infill |
+| Top shell layers | 2 | Enough to bridge sparse infill without holes; nothing presses on the surface |
+| Bottom shell layers | 2 | Same — no load-bearing requirement |
+| Sparse infill density | 8% | Just holds gravity-fed contents; far below a normal 15% default |
+| Sparse infill pattern | Lightning | Purpose-built for "support the top surface, nothing else" — uses less material than any other pattern at a given density |
+| Supports | Off | Tooltrace-derived tray pockets are normally flat-bottomed and self-supporting; check the slice preview per-model rather than defaulting supports on |
+| Brim type | No brim | Tray footprints are normally large enough for bed adhesion without one |
+| Layer height | 0.24mm (inherited) | Largest built-in preset for this printer/nozzle; cuts print time without hand-tuning speeds |
 
-## Optimization Notes
-
-### Infill
-- **10% is ideal** for tool trays—no bending loads, just containment
-- Grid pattern provides consistent rigidity without waste
-- Avoid sparse patterns (e.g., gyroid) at low % as they add complexity
-
-### Walls & Perimeters
-- **Single perimeter** (1.2 mm) is sufficient; tool trays don't need thick shells
-- More perimeters add weight without meaningful benefit
-- Keep top/bottom layers minimal (3 each); a tray doesn't need a solid block
-
-### Supports
-- **Tree supports** are default for P2S; they're efficient and break away cleanly
-- **15% support density** is low but adequate for tray geometry
-- If tray has deep overhangs (>45°), consider checking support preview before print
-
-### Speed & Cooling
-- Fast speeds are fine—static parts tolerate minor surface imperfections
-- Default cooling is acceptable
-- No benefit to slow speeds; print at 150–200 mm/s
-
-### Material Choice
-- **PLA** — easiest, fine for shelves; min. cost
-- **PETG** — more durable; handles slight temperature variation
-- **ABS** — overkill for a static tray; skip unless specifically needed
-- **Multi-color via AMS** — color-code tool positions for organization, not strength
-
-## Estimated Material Savings
-
-Compared to default Bambu Studio settings:
-
-| Factor | Default | Optimized | Saving |
-|--------|---------|-----------|--------|
-| Infill | 15% | 10% | ~33% |
-| Perimeters | 2–3 | 1 | ~50% |
-| Top/bottom | 4–5 each | 3 each | ~35% |
-| **Combined** | — | — | **~45–55% less filament** |
-
-Example: A tray using 100g at defaults → ~50g optimized
+Everything not listed above (speeds, temperatures, cooling, retraction) is left
+exactly as Bambu's own "0.24mm Standard @BBL P2S" preset has it — those are
+already tuned for this printer, so there's no reason to guess at replacement
+numbers.
 
 ## When to Use This Profile
 
-✅ Static tool storage trays (hand tools, drill bits, etc.)  
-✅ Gridfinity-compatible inserts  
-✅ Drawer organizers  
-✅ Any non-structural storage  
+✅ Static tool storage trays (hand tools, drill bits, etc.)
+✅ Gridfinity-compatible inserts, gravity-fed only
+✅ Drawer organizers
 
-❌ Functional parts needing strength (mechanical components, load-bearing)  
-❌ Parts subject to impact or repeated stress  
-❌ Outdoor or high-temperature use  
+❌ Anything that needs to resist lateral force, clamping, or repeated stress
+❌ Parts with real overhangs — check the slice preview; if it needs supports, this profile doesn't turn them on for you
 
 ## How to Import
 
-1. **Save the JSON profile** to your Bambu Studio profile directory:
-   - **macOS**: `~/Library/Preferences/BambuStudio/process/`
-   - **Windows**: `%APPDATA%\BambuStudio\process\`
-   - **Linux**: `~/.config/BambuStudio/process/`
+1. Bambu Studio → File → Import → Import Configs (or the import icon near the
+   preset dropdown)
+2. Select `gridfinity-tray-light.json`
+3. Confirm it appears in the Process dropdown as "Gridfinity Tray - Light"
 
-2. **Restart Bambu Studio** to see the profile in the Process tab
-
-3. **Select the profile** when adding a model to your project plate
+To reproduce it by hand instead: start from "0.24mm Standard @BBL P2S" and change
+only the fields in the Settings table above (wall loops, infill, top/bottom
+shells, supports, brim — under the Strength / Support / Others tabs respectively).
 
 ## Notes
 
-- This profile is **material-agnostic**; adjust temperatures per your filament specs
-- Test the first layer with your actual filament to confirm bed adhesion
-- Monitor the first print to ensure supports break away cleanly
-- No support blocker needed for tool trays; geometry is usually straightforward
+- This is PLA-tuned by inheritance from the base preset; if you switch materials,
+  Bambu Studio's own material presets should still take precedence for temps.
+- No filament-savings percentage is claimed here — the earlier draft's "45-55%
+  savings" table was a guess, not a measurement. If you want a real number, compare
+  the sliced filament estimate for the same model under this preset vs. "0.24mm
+  Standard @BBL P2S" unmodified.

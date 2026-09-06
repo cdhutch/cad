@@ -1,0 +1,20 @@
+{
+    "bottom_shell_layers": "2",
+    "brim_type": "no_brim",
+    "from": "User",
+    "inherits": "0.24mm Standard @BBL P2S",
+    "name": "Gridfinity Tray - Light",
+    "print_extruder_id": [
+        "1",
+        "1"
+    ],
+    "print_extruder_variant": [
+        "Direct Drive Standard",
+        "Direct Drive High Flow"
+    ],
+    "print_settings_id": "Gridfinity Tray - Light",
+    "sparse_infill_density": "8%",
+    "sparse_infill_pattern": "lightning",
+    "top_shell_layers": "2",
+    "version": "2.5.0.7"
+}
