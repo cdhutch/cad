@@ -42,7 +42,9 @@ Same pattern as `allen-wrench-tray.md`:
 - [x] Test pocket fit verified
 - [x] 3MF sliced and saved → `3mf/wera-electrical-screwdrivers/wera-kraftform-160i-tray_4x6x3.9u_v1.3mf`
 - [x] **Printed and installed (2026-09-06)**
-- [ ] STL archived to `stl/inserts/wera-electrical-screwdrivers/` — still empty; the tray was
-      exported to slice it, so grab that `.stl` from Onshape and drop it in here to keep the
-      repo as the source of record
+- [x] STL archived to `stl/inserts/wera-electrical-screwdrivers/wera-kraftform-160i-tray_4x6x3.9u_v1.stl`
+      — recovered 2026-09-06 by extracting the mesh directly out of the already-committed
+      `.3mf` (Onshape no longer has this Part Studio). Its internal Bambu metadata calls it
+      `body_7.stl` — a leftover filename, not a sign it's the raw tooltrace body — confirmed
+      by its bounding box (167.5 × 251.5 mm), which matches a 4×6 Gridfinity footprint exactly.
 - [ ] Onshape link added to `links.md`

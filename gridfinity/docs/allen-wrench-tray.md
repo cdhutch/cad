@@ -83,7 +83,9 @@ Examples:
 - [x] Test pocket fit verified
 - [x] Full tray STL exported → `stl/inserts/allen-wrenches/wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl`
 - [x] **Printed and installed (2026-09-06)**
-- [ ] 3MF archived to `3mf/allen-wrenches/` — folder still only has `.gitkeep`; the tray was
-      sliced to print it, so grab that `.3mf` from Bambu Studio's recent projects and drop it
-      in here to keep the repo as the source of record
+- [ ] 3MF archived to `3mf/allen-wrenches/` — confirmed (2026-09-06, via `git log --all`)
+      this file was never committed on any branch. Nothing design-wise is lost: the STL that
+      was sliced (`stl/inserts/allen-wrenches/wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl`)
+      is already here — re-slice it in Bambu Studio (check recent projects first if you want
+      the original plate/print settings) and save the `.3mf` here.
 - [ ] Onshape link added to `links.md`
