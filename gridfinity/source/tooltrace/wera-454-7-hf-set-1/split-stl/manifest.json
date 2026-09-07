@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "collectionName": "Wera 454 HF 6.0x150",
+  "totalPieces": 4,
+  "pieces": [
+    {
+      "pieceIndex": 0,
+      "label": "Piece 1 of 4",
+      "tile": {
+        "position": {
+          "x": -298.99305396104444,
+          "y": -128.51642216025448
+        },
+        "size": {
+          "width": 210.04999999999998,
+          "height": 168.04
+        }
+      },
+      "files": {
+        "tray": "wera-454-hf-6.0x150-piece-1-of-4-tray.stl",
+        "inserts": "wera-454-hf-6.0x150-piece-1-of-4-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 1,
+      "label": "Piece 2 of 4",
+      "tile": {
+        "position": {
+          "x": -88.94305396104446,
+          "y": -128.51642216025448
+        },
+        "size": {
+          "width": 210.04999999999998,
+          "height": 168.04
+        }
+      },
+      "files": {
+        "tray": "wera-454-hf-6.0x150-piece-2-of-4-tray.stl",
+        "inserts": "wera-454-hf-6.0x150-piece-2-of-4-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 2,
+      "label": "Piece 3 of 4",
+      "tile": {
+        "position": {
+          "x": -298.99305396104444,
+          "y": 39.52357783974551
+        },
+        "size": {
+          "width": 210.04999999999998,
+          "height": 168.04
+        }
+      },
+      "files": {
+        "tray": "wera-454-hf-6.0x150-piece-3-of-4-tray.stl",
+        "inserts": "wera-454-hf-6.0x150-piece-3-of-4-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 3,
+      "label": "Piece 4 of 4",
+      "tile": {
+        "position": {
+          "x": -88.94305396104446,
+          "y": 39.52357783974551
+        },
+        "size": {
+          "width": 210.04999999999998,
+          "height": 168.04
+        }
+      },
+      "files": {
+        "tray": "wera-454-hf-6.0x150-piece-4-of-4-tray.stl",
+        "inserts": "wera-454-hf-6.0x150-piece-4-of-4-inserts.stl"
+      }
+    }
+  ]
+}
