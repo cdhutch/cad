@@ -29,7 +29,8 @@ Same pattern as `allen-wrench-tray.md`:
 2. Trace/offset the pocket per screwdriver (start at 0.3 mm clearance).
 3. Extrude the Gridfinity tray body and subtract the pockets.
 4. Apply the standard Gridfinity bin-bottom interface.
-5. Export STL → `gridfinity/stl/inserts/wera-electrical-screwdrivers/` (not yet done).
+5. Export STL → `gridfinity/stl/inserts/wera-electrical-screwdrivers/`
+   (done — see Status below; this copy was recovered from the committed `.3mf`, not re-exported from Onshape).
 6. Slice in Bambu Studio → `.3mf` → `gridfinity/3mf/wera-electrical-screwdrivers/`.
 7. Add the Onshape link to `gridfinity/source/onshape/links.md`.
 
