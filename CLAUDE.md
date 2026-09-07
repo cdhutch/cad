@@ -9,7 +9,12 @@ This file gives Claude context about the structure, conventions, and current sta
 A personal CAD library for 3D-printed shop organization, focused primarily on **Gridfinity**-compatible storage and tool holders. The primary design workflow is:
 
 1. **tooltrace.ai** — photograph a tool to extract its 2D profile
-2. **Onshape** — build the holder around the profile, apply Gridfinity interface geometry
+2. **Gridfinity export** — ToolTrace's own native "Gridfinity" mode lays out
+   traced tools and exports a finished tray (STEP/STL) directly, with no CAD
+   step in between. This is the default path. Onshape is only used as a
+   fallback for layouts that need a tight interlocking nest beyond simple
+   grid placement, or to hand-repair bad export geometry — see
+   `docs/tooltrace-to-gridfinity-workflow.md`.
 3. **Export** — STL for remixing, 3MF slicer projects (Bambu Studio) for printing
 
 Designs are parametric where possible. The repo is **project-first**: each major CAD project gets its own top-level folder alongside `gridfinity/`.
@@ -37,7 +42,7 @@ cad/
 ├── .gitattributes                   ← Git LFS tracking (*.stl, *.3mf, *.step, *.stp, *.dxf)
 ├── docs/
 │   ├── repo-conventions.md          ← naming rules and folder conventions
-│   └── tooltrace-to-gridfinity-workflow.md  ← reproducible ToolTrace → Onshape → Bambu Studio pipeline
+│   └── tooltrace-to-gridfinity-workflow.md  ← reproducible ToolTrace → Gridfinity export → Bambu Studio pipeline (Onshape as fallback)
 └── gridfinity/                      ← only project currently
     ├── README.md
     ├── docs/
@@ -127,15 +132,21 @@ Slicer builds for tool organization trays fitting a Nystrom Performance tool cab
 - tooltrace source: `source/tooltrace/wera-electrical-screwdrivers/` (body_1–7.stl, dxf) and `source/step/wera-electrical-screwdrivers/` (shadowbow.step)
 - 6-piece set; 7 tooltrace bodies (body_7 is likely the rack/holder)
 
-#### Wera 454/7 HF Set 1 T-Handle Hex-Plus Screwdrivers (`gridfinity/docs/wera-454-7-hf-set-1-tray.md`) — 🚧 in progress
+#### Wera 454/7 HF Set 1 T-Handle Hex-Plus Screwdrivers (`gridfinity/docs/wera-454-7-hf-set-1-tray.md`) — 🚧 printing in progress
 
-7-piece set (2.5/3/4/5/6/8/10mm), needs a compact interlocking nest across 2+
-plates (6×6 grid unit cap on the P2S). All 7 tools traced in ToolTrace and
-combined; Onshape document created; nest/plate-split and modeling not yet done.
-See the project doc for full status and the general
+7-piece set (2.5/3/4/5/6/8/10mm). Built via ToolTrace's native Gridfinity
+export (not Onshape — the DXF/Onshape route was abandoned after repeated
+import failures; see the project doc). All 7 tools traced, combined, laid
+out on a 9u×11u grid, and split into 4 plates (252×252mm max) with per-tool
+pocket depths and finger notches. STEP/STL exported and verified; printing
+as of 2026-09-07. See the project doc for full status and the general
 `docs/tooltrace-to-gridfinity-workflow.md` for the reusable procedure.
 
-- tooltrace source: `source/step/wera-454-7-hf-set-1/` (combined STEP, v1 + v2-separated)
+- tooltrace source: `source/tooltrace/wera-454-7-hf-set-1/` (photos/,
+  split-stl/) and `source/step/wera-454-7-hf-set-1/`
+  (`wera-454-7-hf-set-1-tray_v1.step` — current; the `tooltrace-combined_v1`
+  / `_v2-separated` STEP files there are stale, from the abandoned Onshape
+  route)
 
 ---
 
