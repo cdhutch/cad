@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "collectionName": "Green Screwdrivers",
+  "totalPieces": 3,
+  "pieces": [
+    {
+      "pieceIndex": 0,
+      "label": "Piece 1 of 3",
+      "tile": {
+        "position": {
+          "x": -365.7491316214167,
+          "y": -72.74100000000001
+        },
+        "size": {
+          "width": 182.04333333333332,
+          "height": 126.03
+        }
+      },
+      "files": {
+        "tray": "green-screwdrivers-piece-1-of-3-tray.stl",
+        "inserts": "green-screwdrivers-piece-1-of-3-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 1,
+      "label": "Piece 2 of 3",
+      "tile": {
+        "position": {
+          "x": -183.7057982880834,
+          "y": -72.74100000000001
+        },
+        "size": {
+          "width": 182.04333333333332,
+          "height": 126.03
+        }
+      },
+      "files": {
+        "tray": "green-screwdrivers-piece-2-of-3-tray.stl",
+        "inserts": "green-screwdrivers-piece-2-of-3-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 2,
+      "label": "Piece 3 of 3",
+      "tile": {
+        "position": {
+          "x": -1.662464954750078,
+          "y": -72.74100000000001
+        },
+        "size": {
+          "width": 182.04333333333332,
+          "height": 126.03
+        }
+      },
+      "files": {
+        "tray": "green-screwdrivers-piece-3-of-3-tray.stl",
+        "inserts": "green-screwdrivers-piece-3-of-3-inserts.stl"
+      }
+    }
+  ]
+}
