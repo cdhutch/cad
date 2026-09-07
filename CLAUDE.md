@@ -23,7 +23,7 @@ Designs are parametric where possible. The repo is **project-first**: each major
 
 ## Active Branch
 
-`tooltrace-tools` — all tooltrace.ai-driven tray work lives here. Not yet merged to main.
+`tooltrace-wera-phillips-flathead` — branched from `main` after the Wera 454/7 HF Set 1 tray (built on the now-retired `tooltrace-tools` branch) was merged. Holds the Wera flathead + Phillips screwdriver tray work.
 
 ---
 
@@ -50,7 +50,9 @@ cad/
     │   ├── notes.md                        ← design notes + per-tray status tables
     │   ├── allen-wrench-tray.md            ← design notes for Allen wrench tray project
     │   ├── wera-electrical-screwdrivers-tray.md  ← design notes for Wera screwdriver tray
-    │   ├── wera-454-7-hf-set-1-tray.md     ← design notes for Wera 454/7 HF Set 1 T-handle tray (in progress)
+    │   ├── wera-454-7-hf-set-1-tray.md     ← design notes for Wera 454/7 HF Set 1 T-handle tray
+    │   ├── wera-flathead-screwdrivers-tray.md    ← design notes for Wera flathead tray (in progress)
+    │   ├── wera-phillips-screwdrivers-tray.md    ← design notes for Wera Phillips tray (in progress)
     │   ├── drill_tray_generator.md         ← step-by-step Onshape guide for parametric drill trays
     │   ├── bambu-tool-tray-profile.md      ← Bambu Studio print-profile writeup for low-strength/fast/low-filament trays
     │   └── gridfinity-tray-light.json      ← the corresponding Bambu Studio process preset (verified 2026-09-06)
@@ -60,10 +62,15 @@ cad/
     │   ├── step/                    ← STEP files for Onshape import, organised by tool
     │   │   ├── allen-wrenches/      ← body_1.step, body_2.step, body_3.step
     │   │   ├── wera-electrical-screwdrivers/  ← shadowbow.step
-    │   │   └── wera-454-7-hf-set-1/ ← combined tooltrace STEP exports (v1, v2-separated)
-    │   └── tooltrace/               ← raw tooltrace.ai exports (STL + DXF), organised by tool
+    │   │   ├── wera-454-7-hf-set-1/ ← current STEP export (wera-454-7-hf-set-1-tray_v1.step) plus 2 stale Onshape-era files
+    │   │   ├── wera-flathead-screwdrivers/  ← (empty — new project)
+    │   │   └── wera-phillips-screwdrivers/  ← (empty — new project)
+    │   └── tooltrace/               ← raw tooltrace.ai exports (photos + STL/DXF), organised by tool
     │       ├── allen-wrenches/      ← body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf
-    │       └── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
+    │       ├── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
+    │       ├── wera-454-7-hf-set-1/ ← photos/, split-stl/ (4-plate tray+inserts STL export)
+    │       ├── wera-flathead-screwdrivers/  ← photos/, split-stl/ (empty — new project)
+    │       └── wera-phillips-screwdrivers/  ← photos/, split-stl/ (empty — new project)
     ├── stl/
     │   ├── baseplates/
     │   │   └── magnet/              ← STL baseplate exports (currently empty)
@@ -148,11 +155,33 @@ as of 2026-09-07. See the project doc for full status and the general
   / `_v2-separated` STEP files there are stale, from the abandoned Onshape
   route)
 
+#### Wera Flathead Screwdrivers (`gridfinity/docs/wera-flathead-screwdrivers-tray.md`) — 🚧 not started
+
+3-piece slotted set (Wera 335 0.5×3.0; Wera 334 0.8×5.0×100; Wera 334
+1.2×5×150). Printed as its own tray in a distinct color from the companion
+Phillips set below — same overall tool collection, split into two physical
+trays by tip type. Follows the ToolTrace-native workflow
+(`docs/tooltrace-to-gridfinity-workflow.md`, Part 1).
+
+- tooltrace source: `source/tooltrace/wera-flathead-screwdrivers/` and
+  `source/step/wera-flathead-screwdrivers/` (both empty — scaffolded only)
+
+#### Wera Phillips Screwdrivers (`gridfinity/docs/wera-phillips-screwdrivers-tray.md`) — 🚧 not started
+
+4-piece Phillips set (Wera 350 PH0×60, PH1×80, PH2×100, PH3×150). Printed as
+its own tray in a distinct color from the companion flathead set above.
+Follows the ToolTrace-native workflow
+(`docs/tooltrace-to-gridfinity-workflow.md`, Part 1).
+
+- tooltrace source: `source/tooltrace/wera-phillips-screwdrivers/` and
+  `source/step/wera-phillips-screwdrivers/` (both empty — scaffolded only)
+
 ---
 
 ## Empty / Stub Locations
 
 - `gridfinity/stl/baseplates/magnet/` — STL exports of baseplates (not yet exported)
+- `gridfinity/source/tooltrace/wera-flathead-screwdrivers/`, `wera-phillips-screwdrivers/` and their `source/step/` counterparts — scaffolded, no tools traced yet
 - `gridfinity/stl/inserts/wera-electrical-screwdrivers/` — STL pending Onshape export
 - `gridfinity/3mf/grids/` — layout grid builds (not started)
 - `gridfinity/3mf/allen-wrenches/` — 3MF pending Bambu Studio build (folder reserved via `.gitkeep`)
