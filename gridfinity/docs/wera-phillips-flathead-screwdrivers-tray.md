@@ -5,12 +5,16 @@ Gridfinity tray for 7 Wera precision screwdrivers — 3 slotted (flathead) and
 plates. Follows the ToolTrace-native workflow in
 `docs/tooltrace-to-gridfinity-workflow.md` (Part 1).
 
-Flathead and Phillips tools are kept visually distinguishable **not** by
-printing whole plates in different colors — each plate's pockets are a mix
-of flathead and Phillips tools, so there's no clean per-plate color split —
-but by printing each plate's **insert** sheet twice, once per color, and
-hand-picking individual insert pieces by tool-head shape when assembling
-the tray (see Exports below).
+Only the 3 tray plates were printed — the color-coded insert plan
+(printing each plate's insert sheet twice, once per color, and hand-sorting
+pieces by tool-head shape) was dropped as unnecessary complexity, and also
+ran into a real export issue: each `*-inserts.stl` bundles its tool-shaped
+plugs as one mesh with every plug still at its *actual* pocket depth
+(so a 17.5mm plug and a 28.0mm plug sit at different heights in the same
+file), rather than reset to sit flat on a print bed — printing them would
+have required splitting the mesh into individual objects and dropping each
+to the bed separately in Bambu Studio. Not worth it: the trays are usable
+without the inserts, so they were dropped rather than fixed.
 
 ---
 
@@ -103,15 +107,9 @@ happens at the insert level instead (see Exports below), not per-plate.
 - `gridfinity/source/step/wera-phillips-flathead-screwdrivers/wera-phillips-flathead-screwdrivers-tray_v1.step`
   — STEP export of the whole combined design (not split per plate).
 
-**Print plan for this project (differs from the 454/7 job, where only the
-tray files were printed):** each plate's `*-tray.stl` is printed once
-(one color, structural body). Each plate's `*-insert.stl` is printed
-**twice — once per color** — since the insert sheet's individual
-tool-shaped pieces need to end up color-coded by tip type once assembled.
-After printing, hand-sort the insert pieces by shape (flathead vs.
-Phillips) and drop the correct-color piece into each pocket. This
-achieves the flathead/Phillips visual split at the insert level, since a
-clean per-plate split isn't possible (each plate mixes both tool types).
+**Print plan actually used:** only the 3 `*-tray.stl` files were printed,
+one plate at a time, single color. The `*-inserts.stl` files (kept in the
+repo for reference) were not printed — see the note above.
 
 ---
 
@@ -125,11 +123,11 @@ clean per-plate split isn't possible (each plate mixes both tool types).
 - [x] Split for Multiple Prints configured (3 plates)
 - [x] STEP/STL exported and verified in Bambu Studio
 - [x] Source photos, split-STL exports, and STEP copied into repo
-- [ ] Trays sliced/printed (1 color, structural)
-- [ ] Inserts sliced/printed twice (once per color)
-- [ ] Insert pieces sorted by tool-head shape and matched into pockets
-- [ ] Sliced `.3mf` saved to
-      `gridfinity/3mf/wera-phillips-flathead-screwdrivers/`
-- [ ] Printed
-- [ ] STL archived to
+- [x] Trays sliced and printed (all 3 plates, single color, no inserts)
+- [x] Sliced `.3mf` saved to
+      `gridfinity/3mf/wera-phillips-flathead-screwdrivers/wera-phillips-flathead-tray_4.33x3x5.6u_v1.3mf`
+      (all 3 plates in one project file)
+- [x] Tray STL archived to
       `gridfinity/stl/inserts/wera-phillips-flathead-screwdrivers/`
+      (`..._piece1-of-3_v1.stl` through `..._piece3-of-3_v1.stl`)
+- [x] Color-coded insert plan dropped (see note above)
