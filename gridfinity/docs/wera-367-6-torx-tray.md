@@ -68,6 +68,8 @@ design happened to be named at export time.
 - [ ] Laid out, no overlap
 - [ ] Pocket depths set per tool
 - [ ] Finger notches added per tool
+- [x] Sketch singularity found (via ToolTrace's Fine Tune UI) and fixed on
+      one tool shape
 - [ ] STEP/STL exported and verified in Bambu Studio
 - [x] Source photo (`torx.jpeg`) and STEP/STL exports copied into repo
 - [ ] Sliced `.3mf` saved to `gridfinity/3mf/wera-367-6-torx/`
