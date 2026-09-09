@@ -23,7 +23,7 @@ Designs are parametric where possible. The repo is **project-first**: each major
 
 ## Active Branch
 
-`tooltrace-wera-phillips-flathead` — branched from `main` after the Wera 454/7 HF Set 1 tray (built on the now-retired `tooltrace-tools` branch) was merged. Holds the Wera flathead + Phillips screwdriver tray work.
+`tooltrace-wera-367-6-torx` — branched from `main` after the Wera flathead + Phillips screwdriver tray (built on the now-retired `tooltrace-wera-phillips-flathead` branch) was merged. Holds the Wera 367/6 TORX tray work.
 
 ---
 
@@ -51,7 +51,8 @@ cad/
     │   ├── allen-wrench-tray.md            ← design notes for Allen wrench tray project
     │   ├── wera-electrical-screwdrivers-tray.md  ← design notes for Wera screwdriver tray
     │   ├── wera-454-7-hf-set-1-tray.md     ← design notes for Wera 454/7 HF Set 1 T-handle tray
-    │   ├── wera-phillips-flathead-screwdrivers-tray.md  ← design notes for combined Wera flathead+Phillips tray (in progress)
+    │   ├── wera-phillips-flathead-screwdrivers-tray.md  ← design notes for combined Wera flathead+Phillips tray (printed)
+    │   ├── wera-367-6-torx-tray.md         ← design notes for Wera 367/6 TORX tray (in progress)
     │   ├── drill_tray_generator.md         ← step-by-step Onshape guide for parametric drill trays
     │   ├── bambu-tool-tray-profile.md      ← Bambu Studio print-profile writeup for low-strength/fast/low-filament trays
     │   └── gridfinity-tray-light.json      ← the corresponding Bambu Studio process preset (verified 2026-09-06)
@@ -62,12 +63,14 @@ cad/
     │   │   ├── allen-wrenches/      ← body_1.step, body_2.step, body_3.step
     │   │   ├── wera-electrical-screwdrivers/  ← shadowbow.step
     │   │   ├── wera-454-7-hf-set-1/ ← current STEP export (wera-454-7-hf-set-1-tray_v1.step) plus 2 stale Onshape-era files
-    │   │   └── wera-phillips-flathead-screwdrivers/  ← wera-phillips-flathead-screwdrivers-tray_v1.step
+    │   │   ├── wera-phillips-flathead-screwdrivers/  ← wera-phillips-flathead-screwdrivers-tray_v1.step
+    │   │   └── wera-367-6-torx/            ← (empty — new project)
     │   └── tooltrace/               ← raw tooltrace.ai exports (photos + STL/DXF), organised by tool
     │       ├── allen-wrenches/      ← body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf
     │       ├── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
     │       ├── wera-454-7-hf-set-1/ ← photos/, split-stl/ (4-plate tray+inserts STL export)
-    │       └── wera-phillips-flathead-screwdrivers/  ← photos/ (flathead.jpeg, phillips.jpeg), split-stl/ (3-plate tray+inserts STL export)
+    │       ├── wera-phillips-flathead-screwdrivers/  ← photos/ (flathead.jpeg, phillips.jpeg), split-stl/ (3-plate tray+inserts STL export)
+    │       └── wera-367-6-torx/            ← photos/, split-stl/ (empty — new project)
     ├── stl/
     │   ├── baseplates/
     │   │   └── magnet/              ← STL baseplate exports (currently empty)
@@ -152,21 +155,35 @@ as of 2026-09-07. See the project doc for full status and the general
   / `_v2-separated` STEP files there are stale, from the abandoned Onshape
   route)
 
-#### Wera Flathead + Phillips Screwdrivers (`gridfinity/docs/wera-phillips-flathead-screwdrivers-tray.md`) — 🚧 exported, not yet printed
+#### Wera Flathead + Phillips Screwdrivers (`gridfinity/docs/wera-phillips-flathead-screwdrivers-tray.md`) — ✅ printed 2026-09-09
 
 7-tool combined ToolTrace design (3 slotted: Wera 335 0.5×3.0, Wera 334
 0.8×5.0×100, Wera 334 1.2×6.5×150; 4 Phillips: Wera 350 PH0×60/PH1×80/
 PH2×100/PH3×150), laid out on a 13u×3u grid and split into 3 print plates.
-Flathead/Phillips are interleaved across the plates (not grouped), so the
-two tip types are kept visually distinct at the **insert** level instead
-of per-plate: each plate's insert sheet gets printed twice (once per
-color), and pieces are hand-sorted by tool-head shape into the tray.
-Follows the ToolTrace-native workflow
+Flathead/Phillips are interleaved across the plates (not grouped). A
+planned color-coded insert scheme (printing each plate's insert sheet
+twice, once per color, hand-sorted by tool-head shape) was dropped — the
+exported insert STLs bundle each plug at its real pocket depth rather
+than flat on a bed, and the trays are usable without them. Printed as 3
+single-color tray plates. Follows the ToolTrace-native workflow
 (`docs/tooltrace-to-gridfinity-workflow.md`, Part 1).
 
 - tooltrace source: `source/tooltrace/wera-phillips-flathead-screwdrivers/`
   (photos/, split-stl/) and `source/step/wera-phillips-flathead-screwdrivers/`
   (`wera-phillips-flathead-screwdrivers-tray_v1.step`)
+- archived: `stl/inserts/wera-phillips-flathead-screwdrivers/` (3 tray STLs)
+  and `3mf/wera-phillips-flathead-screwdrivers/` (sliced project, 3 plates)
+
+#### Wera 367/6 TORX Screwdrivers (`gridfinity/docs/wera-367-6-torx-tray.md`) — 🚧 not started
+
+6-piece Torx set (Wera 367/6, part 05028062001 — TX10×80, TX15×80,
+TX20×100, TX25×100, TX30×115, TX40×140mm; needs confirming against the
+physical set, since Wera also sells a 7-piece "HF" holding-function
+variant under a similar name). Follows the ToolTrace-native workflow
+(`docs/tooltrace-to-gridfinity-workflow.md`, Part 1).
+
+- tooltrace source: `source/tooltrace/wera-367-6-torx/` and
+  `source/step/wera-367-6-torx/` (both empty — scaffolded only)
 
 ---
 
