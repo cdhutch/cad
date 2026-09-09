@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "collectionName": "Green Handled Screwdrivers",
+  "totalPieces": 4,
+  "pieces": [
+    {
+      "pieceIndex": 0,
+      "label": "Piece 1 of 4",
+      "tile": {
+        "position": {
+          "x": -193.11030100673696,
+          "y": -441.47978790088257
+        },
+        "size": {
+          "width": 147,
+          "height": 189
+        }
+      },
+      "files": {
+        "tray": "green-handled-screwdrivers-piece-1-of-4-tray.stl",
+        "inserts": "green-handled-screwdrivers-piece-1-of-4-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 1,
+      "label": "Piece 2 of 4",
+      "tile": {
+        "position": {
+          "x": -46.11030100673696,
+          "y": -441.47978790088257
+        },
+        "size": {
+          "width": 147,
+          "height": 189
+        }
+      },
+      "files": {
+        "tray": "green-handled-screwdrivers-piece-2-of-4-tray.stl",
+        "inserts": "green-handled-screwdrivers-piece-2-of-4-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 2,
+      "label": "Piece 3 of 4",
+      "tile": {
+        "position": {
+          "x": -193.11030100673696,
+          "y": -252.47978790088257
+        },
+        "size": {
+          "width": 147,
+          "height": 189
+        }
+      },
+      "files": {
+        "tray": "green-handled-screwdrivers-piece-3-of-4-tray.stl",
+        "inserts": "green-handled-screwdrivers-piece-3-of-4-inserts.stl"
+      }
+    },
+    {
+      "pieceIndex": 3,
+      "label": "Piece 4 of 4",
+      "tile": {
+        "position": {
+          "x": -46.11030100673696,
+          "y": -252.47978790088257
+        },
+        "size": {
+          "width": 147,
+          "height": 189
+        }
+      },
+      "files": {
+        "tray": "green-handled-screwdrivers-piece-4-of-4-tray.stl",
+        "inserts": "green-handled-screwdrivers-piece-4-of-4-inserts.stl"
+      }
+    }
+  ]
+}
