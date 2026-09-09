@@ -37,7 +37,7 @@ set before relying on this table:
 
 ### Source photos → ToolTrace design
 
-TBD — photo filename(s) not yet recorded here; fill in once confirmed.
+All 6 tools traced from a single photo, `torx.jpeg` (all 6 on one sheet).
 
 ### Layout
 
@@ -69,7 +69,7 @@ design happened to be named at export time.
 - [ ] Pocket depths set per tool
 - [ ] Finger notches added per tool
 - [ ] STEP/STL exported and verified in Bambu Studio
-- [x] STEP/STL exports copied into repo (source photos still TBD)
+- [x] Source photo (`torx.jpeg`) and STEP/STL exports copied into repo
 - [ ] Sliced `.3mf` saved to `gridfinity/3mf/wera-367-6-torx/`
 - [ ] Printed
 - [ ] STL archived to `gridfinity/stl/inserts/wera-367-6-torx/`
