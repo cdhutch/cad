@@ -16,8 +16,10 @@ lay out together, and keep them separate when they don't.
 
 ## Item queue
 
-- [ ] Milwaukee driver bit set
-- [ ] Wall stud finder
+- [x] Milwaukee driver bit set — combined into one tray with the stud
+      finder, see below
+- [x] Wall stud finder — combined into one tray with the driver bit set,
+      see below
 - [ ] DeWalt drill bit set #1
 - [ ] DeWalt drill bit set #2
 - [ ] Current (voltage) detector
@@ -28,19 +30,53 @@ lay out together, and keep them separate when they don't.
 
 ## Exports
 
-Source photos, STEP, and split-STL exports land in
-`gridfinity/source/tooltrace/misc-handtools/` (photos/, split-stl/) and
-`gridfinity/source/step/misc-handtools/`, same as the other projects — just
-without a dedicated per-item doc.
+Source photos, STEP, and STL exports land under
+`gridfinity/source/tooltrace/misc-handtools/<item-group>/` and
+`gridfinity/source/step/misc-handtools/<item-group>/`, one subfolder per
+item/group (rather than the flat photos/split-stl/ layout used by the
+single-design Wera projects), since items here get combined into trays in
+different groupings — same idea, just organized per-group instead of
+flat.
 
-<!-- Add a subsection per item/group below as they're worked on, e.g.:
+---
 
-## Milwaukee Driver Bit Set
+## Milwaukee Driver Bit Set + Wall Stud Finder
 
-### Tool set
-...
+Both are essentially rectangular boxes standing upright, ~2.5" (63.5mm)
+tall, each reaching its largest footprint within 1cm of the bottom. Unlike
+the round-handled Wera tools, pocket depth here isn't a percentage of a
+handle diameter — it just needs to be deep enough to capture the widest
+part of the base and hold the item from tipping/sliding, no deeper.
 
-### Layout / Exports
-...
+- **Pocket depth: 10mm for both** (matching the "largest footprint within
+  1cm of the bottom" — going deeper wastes material/print time since
+  nothing wider comes back into contact above that).
+- **No finger notches** — both items stand ~53.5mm proud of the tray
+  surface above their pockets, plenty to grab directly.
+- **Layout**: single tray, roughly 6u × 6u × 3u (251.5 × 251.5 × 21.17mm
+  measured directly from the exported STL) — no Split for Multiple Prints
+  needed at this size.
 
--->
+### Export note
+
+This export came out of ToolTrace as 3 separate STL bodies rather than the
+usual tray+inserts pair — worth knowing since it doesn't match the naming
+pattern from the Wera projects:
+- `body_3.stl` — the actual tray, with the Gridfinity bottom interface and
+  both tool cutouts. This is the one kept/archived/printed.
+- `body_1.stl`, `body_2.stl` — flat 0.5mm-thick reference "stamps" of each
+  tool's outline (not real 3D geometry, not usable for printing).
+  **Discarded**, not copied into the repo.
+
+### Files
+
+- `gridfinity/source/tooltrace/misc-handtools/red-milwaukee-toolbox-and-stud-finder/`
+  — `photos/Milwaukee drill bits and stud finder.jpeg`, and
+  `red-milwaukee-toolbox-and-stud-finder-tray.stl` (renamed from
+  ToolTrace's `body_3.stl`).
+- `gridfinity/source/step/misc-handtools/red-milwaukee-toolbox-and-stud-finder/red-milwaukee-toolbox-and-stud-finder-tray_v1.step`
+
+(Note: Craig's original Downloads filenames used "stub-finder" — corrected
+to "stud-finder" in the repo, matching the actual item.)
+
+**Status:** exported, not yet verified in Bambu Studio or printed.
