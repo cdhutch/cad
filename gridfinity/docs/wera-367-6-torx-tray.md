@@ -57,21 +57,36 @@ design happened to be named at export time.
   {tray, inserts} STL pairs, plus `manifest.json`.
 - `gridfinity/source/step/wera-367-6-torx/wera-367-6-torx-tray_v1.step`
   — STEP export of the whole combined design (not split per plate).
+- `gridfinity/stl/inserts/wera-367-6-torx/` — the 4 tray STLs, archived
+  and renamed per `naming.md`. Note: each tray's actual bounding box
+  (measured directly from the STL) is noticeably smaller than the
+  manifest's nominal 147×189mm tile size — tools don't fill their whole
+  reserved tile, so the real per-plate footprints are ~2.5×4.5u for
+  pieces 1/2/4 and ~2.5×1.5u for piece 3 (which has fewer/smaller tools).
+  Total height 39.17mm (5.6u) matches the flathead+Phillips tray exactly,
+  since both designs share the same 28.0mm deepest pocket.
+- `gridfinity/3mf/wera-367-6-torx/wera-367-6-torx-tray_7x9x5.6u_v1.3mf`
+  — sliced Bambu Studio project (all 4 plates).
 
 ---
 
 ## Status
 
-- [ ] Tool set confirmed against physical set (plain 367/6 vs. HF variant)
-- [ ] Tools photographed (colored background, distance + zoom, shadow-free)
-- [ ] Tools traced in ToolTrace (Fast mode)
-- [ ] Laid out, no overlap
-- [ ] Pocket depths set per tool
-- [ ] Finger notches added per tool
+- [x] Tool set confirmed against physical set — Craig's 6 handle
+      measurements (T10/T15/T20/T25/T30/T40) match the plain 367/6 set,
+      not the 7-piece HF variant
+- [x] Tools photographed (colored background, distance + zoom, shadow-free)
+- [x] Tools traced in ToolTrace (Fast mode)
+- [x] Laid out on a 7u × 9u grid, no overlap
+- [x] Pocket depths set per tool (70%-of-handle-Ø rule)
+- [x] Finger notches added per tool (28.0mm depth, matching deepest pocket)
 - [x] Sketch singularity found (via ToolTrace's Fine Tune UI) and fixed on
       one tool shape
-- [ ] STEP/STL exported and verified in Bambu Studio
-- [x] Source photo (`torx.jpeg`) and STEP/STL exports copied into repo
-- [ ] Sliced `.3mf` saved to `gridfinity/3mf/wera-367-6-torx/`
-- [ ] Printed
-- [ ] STL archived to `gridfinity/stl/inserts/wera-367-6-torx/`
+- [x] STEP/STL exported; print came out well (per Craig, 2026-09-10)
+- [x] Source photo (`torx.jpeg`), STEP export, and raw split-STL exports
+      copied into repo
+- [x] Tray STL archived to `gridfinity/stl/inserts/wera-367-6-torx/`
+      (4 pieces, renamed per naming convention)
+- [x] Printed (per Craig, 2026-09-10)
+- [x] Sliced `.3mf` saved to `gridfinity/3mf/wera-367-6-torx/`
+
