@@ -84,6 +84,10 @@ the boolean subtraction used to generate the pocket, producing a solid
 tool-shaped plug instead of a recessed pocket. Fine Tune lets you clean up
 the outline without re-tracing from scratch.
 
+ToolTrace's Fine Tune UI is good at surfacing exactly where a singularity
+is on a given outline — worth checking there proactively (before export)
+rather than only reactively after a bad STEP/STL turns up.
+
 ### 5. Combine traces from multiple designs with Import Traces
 
 - If your tools are spread across several photos/designs, open the design
