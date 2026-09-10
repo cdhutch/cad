@@ -23,7 +23,7 @@ Designs are parametric where possible. The repo is **project-first**: each major
 
 ## Active Branch
 
-`tooltrace-wera-367-6-torx` — branched from `main` after the Wera flathead + Phillips screwdriver tray (built on the now-retired `tooltrace-wera-phillips-flathead` branch) was merged. Holds the Wera 367/6 TORX tray work.
+`tooltrace-misc-handtools` — branched from `main` after the Wera 367/6 TORX tray (built on the now-retired `tooltrace-wera-367-6-torx` branch) was merged. Holds a lighter-weight, ongoing project for miscellaneous hand tools (not single-brand sets like the prior Wera trays).
 
 ---
 
@@ -52,7 +52,8 @@ cad/
     │   ├── wera-electrical-screwdrivers-tray.md  ← design notes for Wera screwdriver tray
     │   ├── wera-454-7-hf-set-1-tray.md     ← design notes for Wera 454/7 HF Set 1 T-handle tray
     │   ├── wera-phillips-flathead-screwdrivers-tray.md  ← design notes for combined Wera flathead+Phillips tray (printed)
-    │   ├── wera-367-6-torx-tray.md         ← design notes for Wera 367/6 TORX tray (in progress)
+    │   ├── wera-367-6-torx-tray.md         ← design notes for Wera 367/6 TORX tray (printed)
+    │   ├── misc-handtools-tray.md          ← running doc for miscellaneous hand tool trays (lighter-weight, no per-item doc)
     │   ├── drill_tray_generator.md         ← step-by-step Onshape guide for parametric drill trays
     │   ├── bambu-tool-tray-profile.md      ← Bambu Studio print-profile writeup for low-strength/fast/low-filament trays
     │   └── gridfinity-tray-light.json      ← the corresponding Bambu Studio process preset (verified 2026-09-06)
@@ -64,13 +65,15 @@ cad/
     │   │   ├── wera-electrical-screwdrivers/  ← shadowbow.step
     │   │   ├── wera-454-7-hf-set-1/ ← current STEP export (wera-454-7-hf-set-1-tray_v1.step) plus 2 stale Onshape-era files
     │   │   ├── wera-phillips-flathead-screwdrivers/  ← wera-phillips-flathead-screwdrivers-tray_v1.step
-    │   │   └── wera-367-6-torx/            ← (empty — new project)
+    │   │   ├── wera-367-6-torx/            ← wera-367-6-torx-tray_v1.step
+    │   │   └── misc-handtools/             ← (empty — new project)
     │   └── tooltrace/               ← raw tooltrace.ai exports (photos + STL/DXF), organised by tool
     │       ├── allen-wrenches/      ← body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf
     │       ├── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
     │       ├── wera-454-7-hf-set-1/ ← photos/, split-stl/ (4-plate tray+inserts STL export)
     │       ├── wera-phillips-flathead-screwdrivers/  ← photos/ (flathead.jpeg, phillips.jpeg), split-stl/ (3-plate tray+inserts STL export)
-    │       └── wera-367-6-torx/            ← photos/, split-stl/ (empty — new project)
+    │       ├── wera-367-6-torx/            ← photos/ (torx.jpeg), split-stl/ (4-plate tray+inserts STL export)
+    │       └── misc-handtools/             ← photos/, split-stl/ (empty — new project)
     ├── stl/
     │   ├── baseplates/
     │   │   └── magnet/              ← STL baseplate exports (currently empty)
@@ -174,16 +177,32 @@ single-color tray plates. Follows the ToolTrace-native workflow
 - archived: `stl/inserts/wera-phillips-flathead-screwdrivers/` (3 tray STLs)
   and `3mf/wera-phillips-flathead-screwdrivers/` (sliced project, 3 plates)
 
-#### Wera 367/6 TORX Screwdrivers (`gridfinity/docs/wera-367-6-torx-tray.md`) — 🚧 not started
+#### Wera 367/6 TORX Screwdrivers (`gridfinity/docs/wera-367-6-torx-tray.md`) — ✅ printed 2026-09-10
 
 6-piece Torx set (Wera 367/6, part 05028062001 — TX10×80, TX15×80,
-TX20×100, TX25×100, TX30×115, TX40×140mm; needs confirming against the
-physical set, since Wera also sells a 7-piece "HF" holding-function
-variant under a similar name). Follows the ToolTrace-native workflow
+TX20×100, TX25×100, TX30×115, TX40×140mm; confirmed as the plain 367/6 set
+via Craig's handle measurements, not the 7-piece HF variant). 7u×9u grid,
+split into 4 plates. Follows the ToolTrace-native workflow
 (`docs/tooltrace-to-gridfinity-workflow.md`, Part 1).
 
-- tooltrace source: `source/tooltrace/wera-367-6-torx/` and
-  `source/step/wera-367-6-torx/` (both empty — scaffolded only)
+- tooltrace source: `source/tooltrace/wera-367-6-torx/` (photos/,
+  split-stl/) and `source/step/wera-367-6-torx/`
+  (`wera-367-6-torx-tray_v1.step`)
+- archived: `stl/inserts/wera-367-6-torx/` (4 tray STLs) and
+  `3mf/wera-367-6-torx/` (sliced project)
+
+#### Misc Hand Tools (`gridfinity/docs/misc-handtools-tray.md`) — 🚧 queued, not started
+
+Lighter-weight, ongoing project for odds-and-ends hand tools that don't
+belong to a single branded set — no per-item doc/folder, just one running
+doc and one shared source folder, grouped into ToolTrace designs by
+whatever layout makes sense rather than one tray per item. Current queue:
+Milwaukee driver bit set; wall stud finder; 2x DeWalt drill bit sets;
+current (voltage) detector; small electronics tool set; Kobalt tape
+measure.
+
+- tooltrace source: `source/tooltrace/misc-handtools/` and
+  `source/step/misc-handtools/` (both empty — scaffolded only)
 
 ---
 
