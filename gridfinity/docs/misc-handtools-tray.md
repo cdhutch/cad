@@ -16,10 +16,9 @@ lay out together, and keep them separate when they don't.
 
 ## Item queue
 
-- [x] Milwaukee driver bit set — combined into one tray with the stud
-      finder, see below
-- [x] Wall stud finder — combined into one tray with the driver bit set,
-      see below
+- [x] Milwaukee driver bit set — its own tray (see below; originally
+      combined with the stud finder, split apart after a print failure)
+- [x] Wall stud finder — its own tray (see below; same split)
 - [ ] DeWalt drill bit set #1
 - [ ] DeWalt drill bit set #2
 - [ ] Current (voltage) detector
@@ -40,43 +39,75 @@ flat.
 
 ---
 
-## Milwaukee Driver Bit Set + Wall Stud Finder
+## Print lesson: avoid a 6-unit Y dimension on the Gridfinity grid
 
-Both are essentially rectangular boxes standing upright, ~2.5" (63.5mm)
-tall, each reaching its largest footprint within 1cm of the bottom. Unlike
-the round-handled Wera tools, pocket depth here isn't a percentage of a
-handle diameter — it just needs to be deep enough to capture the widest
-part of the base and hold the item from tipping/sliding, no deeper.
+The original combined Milwaukee box + stud finder tray (6u × 6u footprint)
+had to be redone after a print failure. Craig's diagnosis: Gridfinity
+grids with a **Y dimension of 6 units tend to fail** — the base is printed
+as a series of disjoint square pads (gaps between them, not one continuous
+first-layer perimeter), and the printer's calibration/nozzle-wipe routine
+near the front (near-Y) edge of the plate collided with the first layer or
+two.
 
-- **Pocket depth: 10mm for both** (matching the "largest footprint within
-  1cm of the bottom" — going deeper wastes material/print time since
-  nothing wider comes back into contact above that).
-- **No finger notches** — both items stand ~53.5mm proud of the tray
-  surface above their pockets, plenty to grab directly.
-- **Layout**: single tray, roughly 6u × 6u × 3u (251.5 × 251.5 × 21.17mm
-  measured directly from the exported STL) — no Split for Multiple Prints
-  needed at this size.
+I don't have independent confirmation this is a documented/named Bambu or
+Gridfinity issue — I don't recognize it from anything I know — but the
+mechanism is plausible: a non-continuous first layer near where a
+calibration pass runs is a believable collision risk. Treat this as an
+observed lesson from this project, not a verified general rule, unless it
+recurs on future trays.
 
-### Export note
+**Practical fix used**: split the combined tray into two separate,
+smaller single-item prints instead, each avoiding a 6u Y dimension and
+avoiding the near side of the build plate.
 
-This export came out of ToolTrace as 3 separate STL bodies rather than the
-usual tray+inserts pair — worth knowing since it doesn't match the naming
-pattern from the Wera projects:
-- `body_3.stl` — the actual tray, with the Gridfinity bottom interface and
-  both tool cutouts. This is the one kept/archived/printed.
-- `body_1.stl`, `body_2.stl` — flat 0.5mm-thick reference "stamps" of each
-  tool's outline (not real 3D geometry, not usable for printing).
-  **Discarded**, not copied into the repo.
+## Milwaukee Driver Bit Set (own tray)
+
+Rectangular box standing upright, ~2.5" (63.5mm) tall, reaching its
+largest footprint within 1cm of the bottom.
+
+- **Pocket depth: 10mm** (matching the "largest footprint within 1cm of
+  the bottom" — no deeper, since nothing wider comes back into contact
+  above that).
+- **No finger notch** — stands ~53.5mm proud of the tray surface above
+  its pocket, plenty to grab directly.
+- **Layout**: single tray, ~6u × 3u × 3u (251.56 × 125.53 × 21.17mm
+  measured directly from the exported STL).
 
 ### Files
 
-- `gridfinity/source/tooltrace/misc-handtools/red-milwaukee-toolbox-and-stud-finder/`
-  — `photos/Milwaukee drill bits and stud finder.jpeg`, and
-  `red-milwaukee-toolbox-and-stud-finder-tray.stl` (renamed from
-  ToolTrace's `body_3.stl`).
-- `gridfinity/source/step/misc-handtools/red-milwaukee-toolbox-and-stud-finder/red-milwaukee-toolbox-and-stud-finder-tray_v1.step`
+- `gridfinity/source/tooltrace/misc-handtools/red-milwaukee-box/` —
+  `photos/Milwaukee drill bits and stud finder.jpeg`,
+  `red-milwaukee-box-tray.stl` (renamed from ToolTrace's `body_2.stl` —
+  `body_1.stl`, a flat 0.5mm reference stamp, discarded as before).
+- `gridfinity/source/step/misc-handtools/red-milwaukee-box/red-milwaukee-box-tray_v1.step`
+
+**Status:** exported, not yet verified in Bambu Studio or printed.
+
+## Wall Stud Finder (own tray)
+
+Rectangular box standing upright, ~2.5" (63.5mm) tall, reaching its
+largest footprint within 1cm of the bottom.
+
+- **Pocket depth: 10mm.**
+- **No finger notch.**
+- **Layout**: single tray, ~5u × 3u × 3u (209.55 × 125.53 × 21.17mm
+  measured directly from the exported STL).
+
+### Files
+
+- `gridfinity/source/tooltrace/misc-handtools/stud-finder/` —
+  `photos/Milwaukee drill bits and stud finder.jpeg`,
+  `stud-finder-tray.stl` (renamed from ToolTrace's `body_2.stl` —
+  `body_1.stl` discarded as before).
+- `gridfinity/source/step/misc-handtools/stud-finder/stud-finder-tray_v1.step`
 
 (Note: Craig's original Downloads filenames used "stub-finder" — corrected
 to "stud-finder" in the repo, matching the actual item.)
 
 **Status:** exported, not yet verified in Bambu Studio or printed.
+
+## Superseded
+
+The original combined `red-milwaukee-toolbox-and-stud-finder` tray
+(6u × 6u, single print) was replaced by the two separate trays above and
+removed from the repo — see git history if needed.

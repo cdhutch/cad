@@ -287,6 +287,14 @@ minutes, cancel and fall back to STL:
 ## Lessons learned (things that went wrong or wasted time)
 
 General (apply to either path):
+- A Gridfinity grid with a **Y dimension of 6 units** may be prone to
+  print failure — observed once (misc-handtools project) as a first-layer
+  head collision, theorized to be caused by the base's disjoint square
+  pads plus a calibration/nozzle-wipe pass near the front (near-Y) edge of
+  the plate. Not independently confirmed as a known/named issue — treat as
+  one project's observation, but worth avoiding a 6u Y footprint (and
+  keeping designs off the near-Y edge of the plate) until it either
+  recurs or is ruled out.
 - Don't assume a retailer product page's parsed dimensions are correct —
   cross-check against the manufacturer's own PDF datasheet.
 - Don't assume a "shaft length" spec is the tool's total length — check
