@@ -66,26 +66,42 @@ cad/
     │   │   ├── wera-454-7-hf-set-1/ ← current STEP export (wera-454-7-hf-set-1-tray_v1.step) plus 2 stale Onshape-era files
     │   │   ├── wera-phillips-flathead-screwdrivers/  ← wera-phillips-flathead-screwdrivers-tray_v1.step
     │   │   ├── wera-367-6-torx/            ← wera-367-6-torx-tray_v1.step
-    │   │   └── misc-handtools/             ← (empty — new project)
+    │   │   └── misc-handtools/             ← 6 item subfolders (red-milwaukee-box, stud-finder, kobalt-25ft-tape-measure, klein-ncvt1p-voltage-tester, hypertough-77pc-electronics-kit, dewalt-drill-bit-sets), one -tray_v1.step each
     │   └── tooltrace/               ← raw tooltrace.ai exports (photos + STL/DXF), organised by tool
     │       ├── allen-wrenches/      ← body_1.stl, body_2.stl, colorful-wiha-hex-keys-mm.dxf
     │       ├── wera-electrical-screwdrivers/  ← body_1–7.stl, wera-electrical-screwdrivers-mm.dxf
     │       ├── wera-454-7-hf-set-1/ ← photos/, split-stl/ (4-plate tray+inserts STL export)
     │       ├── wera-phillips-flathead-screwdrivers/  ← photos/ (flathead.jpeg, phillips.jpeg), split-stl/ (3-plate tray+inserts STL export)
     │       ├── wera-367-6-torx/            ← photos/ (torx.jpeg), split-stl/ (4-plate tray+inserts STL export)
-    │       └── misc-handtools/             ← photos/, split-stl/ (empty — new project)
+    │       └── misc-handtools/             ← 6 item subfolders, each with photos/ + one renamed tray STL (stamp STLs discarded)
     ├── stl/
     │   ├── baseplates/
     │   │   └── magnet/              ← STL baseplate exports (currently empty)
-    │   └── inserts/                 ← finished tray STLs from Onshape
+    │   └── inserts/                 ← finished tray STLs
     │       ├── allen-wrenches/      ← wiha-hex-key-tray_4x6x2.1u_sae-metric_v1.stl
-    │       └── wera-electrical-screwdrivers/  ← (empty — STL not yet exported)
+    │       ├── wera-electrical-screwdrivers/  ← (empty — STL not yet exported)
+    │       ├── wera-phillips-flathead-screwdrivers/  ← 3 piece tray STLs
+    │       ├── wera-367-6-torx/            ← 4 piece tray STLs
+    │       ├── red-milwaukee-box/          ← red-milwaukee-box-tray_6x3x3u_v1.stl
+    │       ├── stud-finder/                ← stud-finder-tray_5x3x3u_v1.stl
+    │       ├── kobalt-25ft-tape-measure/   ← kobalt-25ft-tape-measure-tray_3x3x3u_v1.stl
+    │       ├── klein-ncvt1p-voltage-tester/ ← klein-ncvt1p-voltage-tester-tray_4x1x3u_v1.stl
+    │       ├── hypertough-77pc-electronics-kit/ ← hypertough-77pc-electronics-kit-tray_4x6x3u_v1.stl
+    │       └── dewalt-drill-bit-sets/      ← dewalt-drill-bit-sets-tray_4x6x3u_v1.stl
     └── 3mf/
         ├── baseplates/
         │   └── magnet/              ← 2 baseplate slicer builds (see below)
         ├── grids/                   ← layout grids (currently empty)
         ├── wera-electrical-screwdrivers/  ← wera-kraftform-160i-tray_4x6x3.9u_v1.3mf
-        └── nystrom_performance/     ← 10 tool tray builds for Nystrom Performance cabinet
+        ├── nystrom_performance/     ← 10 tool tray builds for Nystrom Performance cabinet
+        ├── wera-phillips-flathead-screwdrivers/  ← 3-plate sliced project
+        ├── wera-367-6-torx/            ← 4-plate sliced project
+        ├── red-milwaukee-box/          ← red-milwaukee-box-tray_6x3x3u_v1.3mf
+        ├── stud-finder/                ← stud-finder-tray_5x3x3u_v1.3mf
+        ├── kobalt-25ft-tape-measure/   ← kobalt-25ft-tape-measure-tray_3x3x3u_v1.3mf
+        ├── klein-ncvt1p-voltage-tester/ ← klein-ncvt1p-voltage-tester-tray_4x1x3u_v1.3mf
+        ├── hypertough-77pc-electronics-kit/ ← hypertough-77pc-electronics-kit-tray_4x6x3u_v1.3mf
+        └── dewalt-drill-bit-sets/      ← dewalt-drill-bit-sets-tray_4x6x3u_v1.3mf
 ```
 
 > Note: `stl/` and `3mf/` deliberately use the same top-level split
@@ -191,18 +207,24 @@ split into 4 plates. Follows the ToolTrace-native workflow
 - archived: `stl/inserts/wera-367-6-torx/` (4 tray STLs) and
   `3mf/wera-367-6-torx/` (sliced project)
 
-#### Misc Hand Tools (`gridfinity/docs/misc-handtools-tray.md`) — 🚧 queued, not started
+#### Misc Hand Tools (`gridfinity/docs/misc-handtools-tray.md`) — ✅ printed 2026-09-11
 
 Lighter-weight, ongoing project for odds-and-ends hand tools that don't
-belong to a single branded set — no per-item doc/folder, just one running
-doc and one shared source folder, grouped into ToolTrace designs by
-whatever layout makes sense rather than one tray per item. Current queue:
-Milwaukee driver bit set; wall stud finder; 2x DeWalt drill bit sets;
-current (voltage) detector; small electronics tool set; Kobalt tape
-measure.
+belong to a single branded set — no per-item doc, just one running doc,
+with each item (or combined group) getting its own tray/print rather than
+one shared design. All six queued items are done: Milwaukee driver bit
+set and wall stud finder (each own tray, redone as separate single-item
+prints after a 6u×6u combined tray failed to print); both DeWalt drill
+bit boxes (combined into one tray); Klein Tools NCVT-1P voltage detector;
+Hyper Tough 77-piece electronics repair kit; Kobalt 25' tape measure.
+10mm pockets throughout, no finger notches needed. See the project doc
+for the print-failure lesson (narrowed to 6u×6u specifically) and a note
+on using ToolTrace's Trace Offset: Small for roughly-traced tools.
 
-- tooltrace source: `source/tooltrace/misc-handtools/` and
-  `source/step/misc-handtools/` (both empty — scaffolded only)
+- tooltrace source: `source/tooltrace/misc-handtools/<item>/` and
+  `source/step/misc-handtools/<item>/`, one subfolder per item/group
+- archived: `stl/inserts/<item>/` and `3mf/<item>/` per item (see tree
+  above for the six folder names)
 
 ---
 

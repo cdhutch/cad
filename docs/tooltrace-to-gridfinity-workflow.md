@@ -291,10 +291,14 @@ General (apply to either path):
   print failure — observed once (misc-handtools project) as a first-layer
   head collision, theorized to be caused by the base's disjoint square
   pads plus a calibration/nozzle-wipe pass near the front (near-Y) edge of
-  the plate. Not independently confirmed as a known/named issue — treat as
-  one project's observation, but worth avoiding a 6u Y footprint (and
-  keeping designs off the near-Y edge of the plate) until it either
-  recurs or is ruled out.
+  the plate. Not independently confirmed as a known/named issue. Narrowed
+  by later prints in the same project: a lone 6u dimension (e.g. 4u × 6u)
+  printed fine once rotated on the plate to keep clear of the near-Y edge
+  — the practical rule is to avoid a **6u × 6u** footprint specifically,
+  not any 6u dimension on its own.
+- If a tool's trace comes out dimensionally rougher than expected (less
+  precise/consistent edges), try setting ToolTrace's **Trace Offset to
+  Small** — tightened the fit back up on several misc-handtools trays.
 - Don't assume a retailer product page's parsed dimensions are correct —
   cross-check against the manufacturer's own PDF datasheet.
 - Don't assume a "shaft length" spec is the tool's total length — check
